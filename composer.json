@@ -1,14 +1,14 @@
 {
     "name": "phpyurta/cli-table",
     "type": "library",
-    "license": "open",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "PHPYurta\\": "src/PHPYurta"
         }
     },
     "description": "PHP CLI Table",
-    "aut    hors": [
+    "authors": [
         {
             "name": "I Yurta",
             "email": "iyurta@proton.me"
