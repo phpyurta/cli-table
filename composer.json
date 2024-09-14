@@ -1,0 +1,22 @@
+{
+    "name": "phpyurta/cli-table",
+    "type": "library",
+    "license": "open",
+    "autoload": {
+        "psr-4": {
+            "PHPYurta\\": "src/PHPYurta"
+        }
+    },
+    "description": "PHP CLI Table",
+    "aut    hors": [
+        {
+            "name": "I Yurta",
+            "email": "iyurta@proton.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0.0",
+        "ext-mbstring": "*"
+    }
+}
