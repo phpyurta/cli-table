@@ -3,10 +3,8 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use PHPYurta\CLI\CLITable;
-
-$table = new CLITable();
-$table
-    ->setCaption('Bordered table with default settings')
+(new CLITable())
+    ->setCaption('Default')
     ->addHeader('~-(^._.^)')
     ->addHeader('Lifespan')
     ->addHeader('Origin')
@@ -17,16 +15,15 @@ $table
         ->addCell('Maine, United States')
         ->addCell('Coon Cat, Maine Cat, Maine Shag')
     ->addRow()
-        ->addCell('Persian cat')
-        ->addCell('12 – 17 years')
-        ->addCell('Iran, Afghanistan')
-        ->addCell('Persian Longhair, Shirazi')
+    ->addCell('Persian cat')
+    ->addCell('12 – 17 years')
+    ->addCell('Iran, Afghanistan')
+    ->addCell('Persian Longhair, Shirazi')
     ->addRow()
-        ->addCell('Bengal cat')
-        ->addCell('12 – 16 years')
-        ->addCell('United States')
-        ->addCell('I do not know :)')
+    ->addCell('Bengal cat')
+    ->addCell('12 – 16 years')
+    ->addCell('United States')
+    ->addCell('I do not know :)')
     ->printOut()
 ;
-
 

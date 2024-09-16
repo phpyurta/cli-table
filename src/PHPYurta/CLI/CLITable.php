@@ -86,7 +86,7 @@ class CLITable
         return $this;
     }
 
-    public function getTable(): string
+    public function getTableOutput(): string
     {
         $columns = $this->calculateColumnWidth();
 
@@ -106,16 +106,16 @@ class CLITable
                 $this->border['top-right'],
             ) . PHP_EOL
         ];
+        $padding = str_repeat(' ', $this->padding);
         foreach ($sectors as $sector)
         {
             $rows = [];
             foreach ($sector as $row) {
                 $cells = [];
                 for ($i = 0; $i < count($columns); $i++) {
-                    $cells[] = $this->getCellOutput(
-                        $columns[$i],
-                        $row[$i] ?? null,
-                    );
+                    /** @var CLICell $cell */
+                    $cell = $row[$i];
+                    $cells[] = $padding . $cell->setWidth($columns[$i])->getCellOutput() . $padding;
                 }
 
                 $rows[] = $this->border['vertical'] . implode(
@@ -151,21 +151,10 @@ class CLITable
 
     public function printOut(): void
     {
-        echo $this->getTable();
+        echo $this->getTableOutput();
     }
 
-    private function getCellOutput(int $width, ?CLICell $cell = null)
-    {
-        $padding = str_repeat(' ', $this->padding);
-        $text = $cell ? $cell->getText() : '';
-        $text = preg_replace([
-            '/\s+/u',
-            '/\n\t/u',
-            '/\x1b[[][^A-Za-z]*[A-Za-z]/u',
-        ], [' ', ''], $text);
 
-        return $padding . str_pad($text, $width, ' ', STR_PAD_RIGHT) . $padding;
-    }
 
     /**
      * @param $name
